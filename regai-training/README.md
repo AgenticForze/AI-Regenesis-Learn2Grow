@@ -26,18 +26,24 @@ npm run build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-## Deployment
+## Deployment (GitHub Pages)
 
-Using SSH:
+This project is configured for GitHub Pages hosting from the AgenticForze GitHub organization.
+
+### Required GitHub setting
+
+In the repository settings on GitHub:
+
+1. Open Settings -> Pages
+2. Set Source to "GitHub Actions"
+3. Keep the repository branch as `master` for the deployment workflow
+
+### Publish workflow
+
+The repository includes a GitHub Actions workflow in `.github/workflows/deploy.yml` that builds the site and deploys it to GitHub Pages whenever changes are pushed to `master`.
+
+### Local build
 
 ```bash
-USE_SSH=true npm run deploy
+npm run build
 ```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> npm run deploy
-```
-
-If you are using GitHub Pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
